@@ -32,5 +32,14 @@ public class Manager extends Employee {
 				+ "]";
 	}
 	
+	@Override
+	public double incrementSalary(double incrementAmount) throws NegativeSalaryException2 {
+		if(incrementAmount<0){
+			throw new NegativeSalaryException2("Negative Salary!!");
+		}
+		this.setSalary(this.getSalary() + incrementAmount+ 344);
+		return this.getSalary();
+	}
+	
 
 }

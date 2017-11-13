@@ -1,5 +1,7 @@
 package com.cts.prob1;
 
+import com.sapient.collections.UserNotFoundException;
+
 public class Employee {
 
 	private int id;
@@ -49,7 +51,10 @@ public class Employee {
 		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", yearsOfExperience="
 				+ yearsOfExperience + "]";
 	}
-	public double incrementSalary(double incrementAmount) {
+	public double incrementSalary(double incrementAmount) throws NegativeSalaryException {
+		if(incrementAmount<0){
+			throw new NegativeSalaryException("Negative Salary!!");
+		}
 		this.salary +=incrementAmount;
 		return this.salary;
 	}
